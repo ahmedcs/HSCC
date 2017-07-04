@@ -2,10 +2,28 @@
 HSCC is a Switch-based Congestion Control Framework for Data Centre Networks. 
 Specifically, it aims at expanding the short TCP loss cycles via hysteresis switching and the switch control law switches between two rate modes at the end-host (i.e., TCP mode and slow CBR mode) 
 
-It is implemented as a hardware prototype in NetFPGA platform using verilog hardware language.
+It is implemented as a C simulation code in ns2 and as a hardware prototype in NetFPGA platform using verilog hardware language.
 
 # Installation Guide
 Please Refer to the \[[InstallME](InstallME.md)\] file for more information about installation and possible usage scenarios.
+
+The simulations and real experiments based on the traffic generator is illustrated next
+
+# Running experiments
+
+To run an experiment of HSCC, install HSCC on the end-hosts, download and install the traffic generator \[[Here](http://github.com/ahmedcs/Traffic_Generator)\] then issue the following:
+
+```
+cd experiments
+./run_hscc.sh one 1110 1 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 1 0
+```
+Or to an experiment involving various parameters for the RTO and the elephant threshold
+```
+cd experiments
+./run_hscc_varparam.sh one 1110 10 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 0 7 1 
+```
+For more details on the experiments, refer to the traffic generator installation at \[[Doc](http://github.com/ahmedcs/Traffic_Generator/InstallME.md)\]
+
 
 #Feedback
 I always welcome and love to have feedback on the program or any possible improvements, please do not hesitate to contact me by commenting on the code [Here](https://ahmedcs.github.io/HSCC-post/) or dropping me an email at [ahmedcs982@gmail.com](mailto:ahmedcs982@gmail.com). **PS: this is one of the reasons for me to share the software.**  

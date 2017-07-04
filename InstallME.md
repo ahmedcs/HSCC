@@ -112,7 +112,6 @@ Check out the configuration of the switch as follows:
 sudo ovs-vsctl show
 ```
 
-
 # For Tutorials on OvS and Ryu
 Please check the following websites for more documentation and tutorials:  
 ```
