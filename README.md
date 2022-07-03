@@ -11,19 +11,31 @@ The simulations and real experiments based on the traffic generator is illustrat
 
 # Running experiments
 
-To run an experiment of HSCC, install HSCC on the end-hosts, download and install the traffic generator \[[Here](http://github.com/ahmedcs/Traffic_Generator)\] then issue the following:
+To run an experiment of HSCC, install endhost-wndscale module on the end-hosts then run the following scripts:
 
 ```
-cd experiments
-./run_hscc.sh one 1110 1 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 1 0
+cd scripts
+<!--./run_hscc.sh one 1110 1 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 1 0-->
+./incast.sh $p1 $p2 $p3 $p4 $p5 $p6 $p7 $p8 $p9
 ```
-Or to an experiment involving various parameters for the RTO and the elephant threshold
+Or to an experiment involving elephants
 ```
-cd experiments
-./run_hscc_varparam.sh one 1110 10 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 0 7 1 
+cd scripts
+<!--./run_hscc_varparam.sh one 1110 10 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 0 7 1-->
+./incast_elephant.sh $p1 $p2 $p3 $p4 $p5 $p6 $p7 $p8 $p9
 ```
-For more details on the experiments, refer to the traffic generator installation at \[[Doc](http://github.com/ahmedcs/Traffic_Generator/InstallME.md)\]
-
+The scripts requires the following inputs:
+```
+# 1 : folder path
+# 2 : experiment runtime
+# 3 : number of clients per host
+# 4 : interval of iperf reporting
+# 5 : tcp congestion used
+# 6 : # of webpage requests
+# 7 : # of concurrent connections
+# 8 : # of repetation of apache test
+# 9 : is HSCC or normal switch
+```
 
 #Feedback
 I always welcome and love to have feedback on the program or any possible improvements, please do not hesitate to contact me by commenting on the code [Here](https://ahmedcs.github.io/HSCC-post/) or dropping me an email at [ahmedcs982@gmail.com](mailto:ahmedcs982@gmail.com). **PS: this is one of the reasons for me to share the software.**  
