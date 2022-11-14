@@ -52,12 +52,21 @@ This software including (source code, scripts, .., etc) within this repository a
 # CopyRight Notice
 The Copyright of this repository and its subfolders are held exclusively by "Ahmed Mohamed Abdelmoniem Sayed", for any inquiries contact me at ([ahmedcs982@gmail.com](mailto:ahmedcs982@gmail.com)).
 
-Any USE or Modification to the (source code, scripts, .., etc) included in this repository has to cite the following PAPERS:  
+Any USE or Modification to the (source code, scripts, .., etc) included in this repository has to kindly cite the following PAPERS:  
 
-1- Ahmed M Abdelmoniem, Brahim Bensaou, " Control Theory Based Hysteresis Switch for Congestion Control in Data Centers", Technical Report, HKUST-CS17-01, Hong Kong, 2017.  
+```bibtex
+@INPROCEEDINGS{HSCC_INFOCOM_2019,
+  author={Abdelmoniem, Ahmed M. and Bensaou, Brahim},
+  booktitle={IEEE INFOCOM 2019 - IEEE Conference on Computer Communications}, 
+  title={Hysteresis-based Active Queue Management for TCP Traffic in Data Centers}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={1621-1629},
+  doi={10.1109/INFOCOM.2019.8737369}}
+```
 
 **Notice, the COPYRIGHT and/or Author Information notice at the header of the (source, header and script) files can not be removed or modified.**
 
-
 # Published Paper
-To understand the framework and proposed solution, please read the technical report \[[HSCC Tech-Repo PDF](download/HSCC-Report.pdf)\]
+To understand the framework and proposed solution, please read the \[[INFOCOM paper] (https://ieeexplore.ieee.org/document/8737369)\] or \[[Technical Report](download/HSCC-Report.pdf)\]
