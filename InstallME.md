@@ -1,16 +1,23 @@
+# CAUTION
+In our deployement, we have used NetFPGA 1G platform which is currently obselete, for details on the platform used see [HERE](https://netfpga.org/NetFPGA-1G.html). However, we believe the logic provided in the verliog code can be adapted easily to the newer netfpga platforms, but we do not cover or guarantee the behaviour.
+
 # Prerequisites
-To build the bitfile on the NetFPGA platform, you need to obtain the Ethernet MAC IP core specifically [Tri-Mode Ethernet Media Access Controller](https://www.xilinx.com/products/intellectual-property/temac.html) 
+To build the bitfile on the NetFPGA platform, you need to obtain [Xilinx Vivado and ISE Design Suites](https://www.xilinx.com/products/design-tools/ise-design-suite.html) and the licence for the Ethernet MAC IP core, specifically [Tri-Mode Ethernet Media Access Controller](https://www.xilinx.com/products/intellectual-property/temac.html).  
 
-# Installation steps
+# Building steps
 
-change your current directory to to where the source and Makefile is located then issue:
+First, clone the project to your local drive.
 
 ```
 git clone https://github.com/ahmedcs/HSCC.git
-cd HSCC/synth
-make
 ```
+Then, the netfpga card needs to be loaded with the binary file (or bitfile) of the HSCC-based switch. The verilog code for building the HSCC module can be implemented on the netfpga reference [Switch](https://github.com/NetFPGA/netfpga/tree/master/projects/reference_switch) design but is also applicable to the reference [Router](https://github.com/NetFPGA/netfpga/tree/master/projects/reference_router) design. 
 
+The file of the HSCC switch/router module is named **hscc_main.v** which is under the **netfpga** folder. Put the file in the src folder of the src folder of the reference switch or router and then start the synthesis. After the synthesis process is complete with no errors, you would have the new bitfile, please upload it to the netfpga card before starting the experiments.
+
+We do not cover or provide guide on the building or deployment on the NetFPGA platform. However, to help the interested parties build and upload the new bitfile, we give the links to the official guide which is available [HERE](https://github.com/NetFPGA/netfpga/wiki/Guide) and a useful tutorial which is available on the following links: [DAY1](https://www.cl.cam.ac.uk/research/srg/netos/projects/netfpga/workshop/technion-august-2015/material/slides/2015_Summer_Camp_Day_1.pdf) and [DAY2](https://www.cl.cam.ac.uk/research/srg/netos/projects/netfpga/workshop/technion-august-2015/material/slides/2015_Summer_Camp_Day_2.pdf).
+
+<!--
 # OpenvSwitch version
 
 You need to apply the patch that comes along with the source files to the "datapath" subfolder of the OpenvSwitch source directory. Notice that, the patch is customized to openvswitch version 2.4.0 and it may/may not work for other versions. If you are applying the patch to a different version, please read the patch file and update manually (few locations is updated).
@@ -46,8 +53,9 @@ The location of the OpenvSwitch module can be found by the following:
 ```
 modinfo openvswitch
 ```
+-->
 
-# Kernel-Module Makefile update
+# Window Scale Module
 If the source file has been changed, you need to update the name of the object file to match the new source file containing the module init_module and exit_module macros and the definition functions. SEE Makefile for more information.
 
 Notice, you can include other source and header files but under the condition that there are a single source file containing the necessary init_module and exit_module macros and their function.
@@ -55,39 +63,26 @@ Notice, you can include other source and header files but under the condition th
 
 Now the output files is as follows:
 ```
-hscc.o and hscc.ko
+cd endhost-wndscale
+make
 ```
-The file ending with .o is the object file while the one ending in .ko is the module file
-
+The files generated would be wnd_scale.o and wnd_scale.ko, where one ending with .o is the object file while the one ending in .ko is the module file
 
 # Run
 To install the module into the kernel
 ```
-sudo insmode hscc.ko
+sudo insmode wnd_scale.ko
 ```
-Now the module will do nothing until it is enabled by setting hygenicc_enable parameter as follows:   
-
-```
-sudo echo 1 > /sys/kernel/modules/iqm/parameters/hscc_enable;
-```
-
-Note that the parameters of the module are:  
-1- hscc_enable: enable HSCC congestion control module, 0 is the default which disables packet interception.  
-
-Also to call the module with different parameters issue the following:
-```
-sudo insmod hscc.ko hscc_enable=1;
-```
-
 
 # Stop
 
 To stop the loss_probe module and free the resources issue the following command:
 
 ```
-sudo rmmod -f hscc;
+sudo rmmod -f wnd_scale;
 ```
 
+<!--
 # SDN Controller Application
 
 The simple layer 2 switch SDN controller has been adopted for implementing the HSCC SDN controller application.  
@@ -120,3 +115,4 @@ http://openvswitch.org
 http://networkstatic.net/openflow-openvswitch-lab/
 http://sdnhub.org/tutorials/ryu/
 ```
+-->
