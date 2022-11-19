@@ -67,4 +67,4 @@ Any USE or Modification to the (source code, scripts, .., etc) included in this 
 **Notice, the COPYRIGHT and/or Author Information notice at the header of the (source, header and script) files can not be removed or modified.**
 
 # Published Paper
-To understand the framework and proposed solution, please read the \[[INFOCOM paper] (https://ieeexplore.ieee.org/document/8737369)\] or \[[Technical Report](download/HSCC-Report.pdf)\]
+To understand the framework and proposed solution, please read the \[[INFOCOM paper](https://ieeexplore.ieee.org/document/8737369)\] or \[[Technical Report](download/HSCC-Report.pdf)\]
