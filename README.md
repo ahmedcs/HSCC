@@ -15,13 +15,11 @@ To run an experiment of HSCC, install endhost-wndscale module on the end-hosts t
 
 ```
 cd scripts
-<!--./run_hscc.sh one 1110 1 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 1 0-->
 ./incast.sh $p1 $p2 $p3 $p4 $p5 $p6 $p7 $p8 $p9
 ```
 Or to an experiment involving elephants
 ```
 cd scripts
-<!--./run_hscc_varparam.sh one 1110 10 7000 1000 conf/client_config_oneWEB.txt 172.16.0.1:8001 XMLRPC 1 28 0 0 0 0 7 1-->
 ./incast_elephant.sh $p1 $p2 $p3 $p4 $p5 $p6 $p7 $p8 $p9
 ```
 The scripts requires the following inputs:
