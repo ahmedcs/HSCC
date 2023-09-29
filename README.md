@@ -62,6 +62,16 @@ Any USE or Modification to the (source code, scripts, .., etc) included in this 
   number={},
   pages={1621-1629},
   doi={10.1109/INFOCOM.2019.8737369}}
+
+@ARTICLE{HSCC_ToN_2023,
+  author={Abdelmoniem, Ahmed M. and Bensaou, Brahim},
+  journal={IEEE/ACM Transactions on Networking}, 
+  title={Enhancing TCP via Hysteresis Switching: Theoretical Analysis and Empirical Evaluation}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-0},
+  doi={10.1109/TNET.2023.3262564}}
 ```
 
 **Notice, the COPYRIGHT and/or Author Information notice at the header of the (source, header and script) files can not be removed or modified.**
